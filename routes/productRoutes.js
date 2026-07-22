@@ -8,8 +8,6 @@ const {
   deleteProduct,
 } = require("../controllers/productController");
 
-// Routes only define the path and method, then hand off to the
-// controller. No business logic lives here.
 router.get("/", getAllProducts);
 router.get("/:id", getProductById);
 router.post("/", createProduct);

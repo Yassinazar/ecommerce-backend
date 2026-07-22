@@ -1,5 +1,3 @@
-// Sample data used to populate the database with realistic products
-// so development and testing can begin immediately.
 const sampleProducts = [
   {
     name: "Wireless Headphones",

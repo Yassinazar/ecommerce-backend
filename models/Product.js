@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 
-// The Product schema is the single source of truth for what a product
-// looks like anywhere in the application. Every route, controller, and
-// service that touches product data relies on the shape and validation
-// rules defined here.
 const productSchema = new mongoose.Schema(
   {
     name: {

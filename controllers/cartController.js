@@ -2,8 +2,6 @@ const Cart = require("../models/Cart");
 const Product = require("../models/Product");
 const ApiError = require("../services/ApiError");
 
-// POST /api/carts
-// Creates a new, empty cart. Items get added to it afterwards.
 const createCart = async (req, res, next) => {
   try {
     const cart = await Cart.create({ items: [] });
@@ -13,9 +11,6 @@ const createCart = async (req, res, next) => {
   }
 };
 
-// GET /api/carts/:id
-// Fetches a cart by id and populates each item's product reference so
-// the response includes full product details, not just the id.
 const getCartById = async (req, res, next) => {
   try {
     const cart = await Cart.findById(req.params.id).populate("items.product");
@@ -30,10 +25,6 @@ const getCartById = async (req, res, next) => {
   }
 };
 
-// POST /api/carts/:id/items
-// Adds an item (product reference + quantity) to an existing cart.
-// If the product is already in the cart, its quantity is increased
-// instead of creating a duplicate entry.
 const addItemToCart = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;

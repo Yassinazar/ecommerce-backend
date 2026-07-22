@@ -1,8 +1,6 @@
 const Product = require("../models/Product");
 const ApiError = require("../services/ApiError");
 
-// GET /api/products
-// Fetches every product in the catalog.
 const getAllProducts = async (req, res, next) => {
   try {
     const products = await Product.find();
@@ -12,8 +10,6 @@ const getAllProducts = async (req, res, next) => {
   }
 };
 
-// GET /api/products/:id
-// Fetches a single product by its id.
 const getProductById = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -28,10 +24,6 @@ const getProductById = async (req, res, next) => {
   }
 };
 
-// POST /api/products
-// Creates a new product. Mongoose validation (required fields, types,
-// min values) runs automatically and rejects bad input before it ever
-// reaches the database.
 const createProduct = async (req, res, next) => {
   try {
     const { name, price, description, category, image } = req.body;
@@ -50,8 +42,6 @@ const createProduct = async (req, res, next) => {
   }
 };
 
-// PUT /api/products/:id
-// Updates an existing product with new values.
 const updateProduct = async (req, res, next) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
@@ -69,8 +59,6 @@ const updateProduct = async (req, res, next) => {
   }
 };
 
-// DELETE /api/products/:id
-// Removes a product from the catalog.
 const deleteProduct = async (req, res, next) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
